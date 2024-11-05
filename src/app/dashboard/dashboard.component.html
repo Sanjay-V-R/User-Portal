@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="row">
+        <div *ngIf="sideBarStatus" style="min-height: 2vh;" class="col-lg-1 bg-dark d-flex flex-column p-3">
+            <a class="mb-3 fw-bolder" style="text-decoration: none; color: white;" routerLink="/dashboard">Home</a>
+            <a class="mb-3 fw-bolder" style="text-decoration: none; color: white;" routerLink="/users">Users</a>
+            <button (click)="logout()" class="btn btn-outline-light mt-auto fw-bolder">Log Out</button>
+        </div>
+        <div class="col">
+            <div class="row mt-2">
+                <div class="col-lg-8">
+                    <div style="height: 140px; background-image: url(https://img.freepik.com/free-vector/half-tone-blue-abstract-background-with-text-space_1017-41428.jpg?ga=GA1.1.1235430770.1729054785&semt=ais_hybrid); background-size: cover;"
+                        class="d-flex banner rounded p-3 align-items-center shadow">
+                        <h1 class="text-light fw-bolder">
+                            <i (click)="menuBtnClicked()" class="fa-solid fa-bars btn text-light fa-1x"></i>
+                            Welcome {{adminName}}
+                        </h1>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-lg-6">
+                            <app-calender></app-calender>
+                        </div>
+                        <div class="col-lg-6">
+                            <app-chart></app-chart>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div style="height: 500px;" class="rounded p-2 border shadow">
+                        <app-edit-admin (onAdminChange)="adminChange($event)"></app-edit-admin>
+                    </div>
+                    <div style="height: 149px; background-image: url(https://images.pexels.com/photos/960137/pexels-photo-960137.jpeg?auto=compress&cs=tinysrgb&w=600); background-size: cover;"
+                        class="d-flex banner rounded p-3 align-items-center shadow my-3">
+                        <h2 class="text-light mx-3">
+                            <i class="fa-solid fa-users text-light fa-1x"></i>
+                            Total Employee Count : <span class="text-light">{{userCount}}</span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

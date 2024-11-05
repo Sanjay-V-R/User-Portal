@@ -1,0 +1,31 @@
+<div style="height: 88vh;" class="d-flex align-items-center justify-content-center w-100">
+    <div style="width: 1000px;" class="shadow bg-dark row rounded p-5 align-items-center">
+        <div class="col-lg-6">
+            <img src="https://cdni.iconscout.com/illustration/premium/thumb/login-illustration-download-in-svg-png-gif-file-formats--account-password-security-lock-design-development-illustrations-2757111.png?f=webp"
+                alt="" class="img-fluid">
+        </div>
+        <div class="col-lg-6">
+            <form (ngSubmit)="login()" #loginForm="ngForm" class="rounded p-5 border">
+                <div class="form-floating mb-3">
+                    <input #useremail="ngModel" name="email" [(ngModel)]="email" type="email" id="floatingInput"
+                        class="form-control" placeholder="name@example.com" email required>
+                    <label for="floatingInput">Email address</label>
+                </div>
+
+                <div *ngIf="useremail.invalid && useremail.touched" class="text-danger fw-bolder mb-3">*Invalid Email</div>
+
+                <div class="form-floating mb-3">
+                    <input #userpswd="ngModel" name="password" [(ngModel)]="password" type="password" id="floatingPassword"
+                        class="form-control" placeholder="Password" pattern="[a-zA-Z0-9]*" required>
+                    <label for="floatingPassword">Password</label>
+                </div>
+
+                <div *ngIf="userpswd.invalid && userpswd.touched" class="text-danger fw-bolder mb-3">*Invalid Password</div>
+
+                <div class="d-grid">
+                    <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
